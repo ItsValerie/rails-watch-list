@@ -1,0 +1,4 @@
+<ul> Your Bookmarks</ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li> <%= link_to bookmark.comment, bookmark_path(bookmark)  %> </li>
+  <% end %>

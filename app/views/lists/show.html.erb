@@ -3,6 +3,10 @@
   <% @list.movies.each do |movie| %>
     <li> <%= movie.title  %> </li>
   <% end %>
-
+<ul> Your bookmarks for <%= @list.name %></ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li> <%= bookmark.movie.title  %> </li>
+    <li> <%= bookmark.comment %> </li>
+  <% end %>
 <h2>Simply add a new bookmark to your list</h2>
-<%= render 'shared/form' %>
+  <%= render 'shared/form' %>

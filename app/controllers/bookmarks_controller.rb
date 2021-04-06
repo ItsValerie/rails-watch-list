@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :set_list, only: [:new, :index, :create]
 
   def index
-    @bookmarks = @list.bookmarks
+    @bookmarks = Bookmark.all
   end
 
   def show
@@ -15,11 +15,12 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    @list.bookmark = @bookmark
+    @movie = Movie.find(params[:movie_id])
+    @bookmark.movie = @movie
     if @bookmark.save
-      redirect_to bookmark_path(@list, @bookmark)
+      redirect_to list_path(@list), notice: 'Bookmark created'
     else
-      render 'new'
+      render 'lists/show'
     end
   end
 
