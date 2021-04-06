@@ -1,1 +1,8 @@
 <h1><%= @list.name %></h1>
+<ul> Your list includes the following movies</ul>
+  <% @list.movies.each do |movie| %>
+    <li> <%= movie.title  %> </li>
+  <% end %>
+
+<h2>Simply add a new bookmark to your list</h2>
+<%= render 'shared/form' %>

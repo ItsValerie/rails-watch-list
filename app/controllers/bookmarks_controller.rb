@@ -1,5 +1,5 @@
 class BookmarksController < ApplicationController
-  before_action :set_list, only: [:new, :index]
+  before_action :set_list, only: [:new, :index, :create]
 
   def index
     @bookmarks = @list.bookmarks
