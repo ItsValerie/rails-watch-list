@@ -1,4 +1,13 @@
-<ul> Your Bookmarks</ul>
-  <% @bookmarks.each do |bookmark| %>
-    <li> <%= link_to bookmark.comment, bookmark_path(bookmark)  %> </li>
-  <% end %>
+<h1>Your Bookmarks</h1>
+<p>Simply click on a bookmark to add a review or mark is as "watched"</p>
+<% @bookmarks.each do |bookmark| %>
+  <div class="card-product">
+    <% if bookmark.list.photo.attached? %>
+      <%= cl_image_tag bookmark.list.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+    <div class="card-product-infos">
+      <h2><%= bookmark.movie.title %></h2>
+      <p><%= bookmark.comment %>.</p>
+    </div>
+  </div>
+<% end %>

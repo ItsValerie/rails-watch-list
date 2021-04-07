@@ -28,6 +28,8 @@ gem 'font-awesome-sass', '~> 5.12.0'
 # Build easy forms
 gem 'simple_form'
 
+# Material Icons
+gem 'material_icons'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
