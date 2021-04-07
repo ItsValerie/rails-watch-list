@@ -6,7 +6,8 @@ class ListsController < ApplicationController
   end
 
   def show
-
+    @movies = Movie.all
+    @bookmark = Bookmark.new
   end
 
   def new
@@ -16,7 +17,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list), notice: 'List created'
     else
       render 'new'
     end
@@ -29,6 +30,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end

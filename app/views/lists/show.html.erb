@@ -1,1 +1,23 @@
-<h1><%= @list.name %></h1>
+<% if @list.photo.attached? %>
+  <% @url = @list.photo.attached? ? cl_image_path(@list.photo.key) : "https://res.cloudinary.com/dwcpob2ct/image/upload/v1617723768/sean-benesh-6Nbo9Pn0yJA-unsplash_ygttot.jpg"%>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url(<%= @url %>) ">
+    <div class="container m-1">
+      <h1> <% @list.name %></h1>
+      <a class="btn btn-flat" href="<% new_list_path %>">Add new list</a>
+    </div>
+  </div>
+<% else %>
+  <h1><%= @list.name %></h1>
+<% end %>
+
+<ul> Your list includes the following movies</ul>
+  <% @list.movies.each do |movie| %>
+    <li> <%= movie.title  %> </li>
+  <% end %>
+<ul> Your bookmarks for <%= @list.name %></ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li> <%= bookmark.movie.title  %> </li>
+    <li> <%= bookmark.comment %> </li>
+  <% end %>
+<p>Missing something? Simply add a new bookmark</p>
+  <%= render 'shared/form' %>
