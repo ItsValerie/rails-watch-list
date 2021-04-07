@@ -39,3 +39,14 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+
+.btn-card {
+  border: none;
+  color: darkgrey;
+
+  &:hover {
+      text-decoration: none;
+      background-color: #F4F4F4;
+      color: black;
+    }
+}
