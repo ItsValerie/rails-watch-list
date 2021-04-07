@@ -1,5 +1,8 @@
-<h1>Lists Overview</h1>
-<ul> These are all the lists available</ul>
-  <% @lists.each do |list| %>
-    <li> <%= link_to list.name, list_path(list)  %> </li>
-  <% end %>
+<h1>All Lists</h1>
+<p> These are our favourite lists to choose movies from</p>
+<% @lists.each do |list| %>
+ <% @url = list.photo.attached? ? cl_image_path(list.photo.key) : "https://res.cloudinary.com/dwcpob2ct/image/upload/v1617723768/sean-benesh-6Nbo9Pn0yJA-unsplash_ygttot.jpg"%>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= @url %>) ">
+    <%= list.name %>
+  </div>
+<% end %>
