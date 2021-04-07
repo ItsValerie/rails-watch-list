@@ -1,12 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://res.cloudinary.com/dwcpob2ct/image/upload/v1617722223/Download_1_dvjxdv.jpg" />
-  </a>
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <h3> <%= cl_image_tag("https://res.cloudinary.com/dwcpob2ct/image/upload/v1617722223/Download_1_dvjxdv.jpg",  crop: :fill) %></h3>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -16,7 +14,7 @@
         <%= link_to "Movies", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-       <%= link_to "My Lists", lists_path, class: "nav-link" %>
+       <%= link_to "Lists", lists_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "My Bookmarks", bookmarks_path, class: "nav-link" %>
