@@ -28,6 +28,9 @@ gem 'font-awesome-sass', '~> 5.12.0'
 # Build easy forms
 gem 'simple_form'
 
+# Search functionality
+gem 'searchkick', '~> 4.0'
+
 # Material Icons
 gem 'material_icons'
 # Use Active Storage variant
